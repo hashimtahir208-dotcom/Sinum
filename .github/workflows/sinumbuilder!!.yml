@@ -1,0 +1,11 @@
+      - name: Build macOS dylib (x86_64)
+        run: |
+          cd ./iOS
+          mkdir -p build
+          xcrun -sdk macosx clang++ Main.m \
+            -dynamiclib \
+            -arch x86_64 \
+            -mmacosx-version-min=10.13 \
+            -Wl,-no_fixup_chains \
+            -o build/libSinum_macos_x86_64.dylib \
+            -framework Foundation
